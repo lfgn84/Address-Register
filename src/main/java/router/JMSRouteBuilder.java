@@ -1,4 +1,4 @@
-package Router;
+package router;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -12,6 +12,6 @@ public class JMSRouteBuilder extends RouteBuilder {
             public void process(Exchange exchange) throws Exception {
                 System.out.println(exchange.getIn().getBody() + "processing");
             }
-        }).to("seda:receivedMessage");
+        }).to("jdbc:dataSource");
     }
 }
